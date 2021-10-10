@@ -1,9 +1,6 @@
 name: dotnet package
 
-on:
-  push:
-    branches: 
-      -  "CodeGen-CS"
+on: [push]
 
 jobs:
   build:
