@@ -3,7 +3,7 @@ name: dotnet package
 on:
   push:
     branches: 
-      -  CodeGen-CS
+      -  "CodeGen-CS"
 
 jobs:
   build:
