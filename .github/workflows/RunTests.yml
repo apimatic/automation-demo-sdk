@@ -1,6 +1,6 @@
 name: Run Test Cases
 
-on: [push]
+on: push
 
 jobs:
   build:
