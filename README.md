@@ -1,15 +1,11 @@
 
-# Getting Started with APIMATIC Calculator
-
-## Introduction
-
-Simple calculator API hosted on APIMATIC
+# Getting Started with CoinGecko API V3
 
 ## Building
 
 The generated code uses the Newtonsoft Json.NET NuGet Package. If the automatic NuGet package restore is enabled, these dependencies will be installed automatically. Therefore, you will need internet access for build.
 
-* Open the solution (APIMATICCalculator.sln) file.
+* Open the solution (CoinGeckoAPIV3.sln) file.
 
 Invoke the build process using Ctrl + Shift + B shortcut key or using the Build menu as shown below.
 
@@ -17,39 +13,39 @@ The build process generates a portable class library, which can be used like a n
 
 ## Installation
 
-The following section explains how to use the APIMATICCalculator.Standard library in a new project.
+The following section explains how to use the CoinGeckoAPIV3.Standard library in a new project.
 
 ### 1. Starting a new project
 
 For starting a new project, right click on the current solution from the solution explorer and choose `Add -> New Project`.
 
-![Add a new project in Visual Studio](https://apidocs.io/illustration/cs?workspaceFolder=APIMATIC%20Calculator-CSharp&workspaceName=APIMATICCalculator&projectName=APIMATICCalculator.Standard&rootNamespace=APIMATICCalculator.Standard&step=addProject)
+![Add a new project in Visual Studio](https://apidocs.io/illustration/cs?workspaceFolder=CoinGecko%20API%20V3-CSharp&workspaceName=CoinGeckoAPIV3&projectName=CoinGeckoAPIV3.Standard&rootNamespace=CoinGeckoAPIV3.Standard&step=addProject)
 
 Next, choose `Console Application`, provide `TestConsoleProject` as the project name and click OK.
 
-![Create a new Console Application in Visual Studio](https://apidocs.io/illustration/cs?workspaceFolder=APIMATIC%20Calculator-CSharp&workspaceName=APIMATICCalculator&projectName=APIMATICCalculator.Standard&rootNamespace=APIMATICCalculator.Standard&step=createProject)
+![Create a new Console Application in Visual Studio](https://apidocs.io/illustration/cs?workspaceFolder=CoinGecko%20API%20V3-CSharp&workspaceName=CoinGeckoAPIV3&projectName=CoinGeckoAPIV3.Standard&rootNamespace=CoinGeckoAPIV3.Standard&step=createProject)
 
 ### 2. Set as startup project
 
 The new console project is the entry point for the eventual execution. This requires us to set the `TestConsoleProject` as the start-up project. To do this, right-click on the `TestConsoleProject` and choose `Set as StartUp Project` form the context menu.
 
-![Adding a project reference](https://apidocs.io/illustration/cs?workspaceFolder=APIMATIC%20Calculator-CSharp&workspaceName=APIMATICCalculator&projectName=APIMATICCalculator.Standard&rootNamespace=APIMATICCalculator.Standard&step=setStartup)
+![Adding a project reference](https://apidocs.io/illustration/cs?workspaceFolder=CoinGecko%20API%20V3-CSharp&workspaceName=CoinGeckoAPIV3&projectName=CoinGeckoAPIV3.Standard&rootNamespace=CoinGeckoAPIV3.Standard&step=setStartup)
 
 ### 3. Add reference of the library project
 
 In order to use the Tester library in the new project, first we must add a project reference to the `TestConsoleProject`. First, right click on the `References` node in the solution explorer and click `Add Reference...`
 
-![Adding a project reference](https://apidocs.io/illustration/cs?workspaceFolder=APIMATIC%20Calculator-CSharp&workspaceName=APIMATICCalculator&projectName=APIMATICCalculator.Standard&rootNamespace=APIMATICCalculator.Standard&step=addReference)
+![Adding a project reference](https://apidocs.io/illustration/cs?workspaceFolder=CoinGecko%20API%20V3-CSharp&workspaceName=CoinGeckoAPIV3&projectName=CoinGeckoAPIV3.Standard&rootNamespace=CoinGeckoAPIV3.Standard&step=addReference)
 
 Next, a window will be displayed where we must set the `checkbox` on `Tester.Tests` and click `OK`. By doing this, we have added a reference of the `Tester.Tests` project into the new `TestConsoleProject`.
 
-![Creating a project reference](https://apidocs.io/illustration/cs?workspaceFolder=APIMATIC%20Calculator-CSharp&workspaceName=APIMATICCalculator&projectName=APIMATICCalculator.Standard&rootNamespace=APIMATICCalculator.Standard&step=createReference)
+![Creating a project reference](https://apidocs.io/illustration/cs?workspaceFolder=CoinGecko%20API%20V3-CSharp&workspaceName=CoinGeckoAPIV3&projectName=CoinGeckoAPIV3.Standard&rootNamespace=CoinGeckoAPIV3.Standard&step=createReference)
 
 ### 4. Write sample code
 
 Once the `TestConsoleProject` is created, a file named `Program.cs` will be visible in the solution explorer with an empty `Main` method. This is the entry point for the execution of the entire solution. Here, you can add code to initialize the client library and acquire the instance of a Controller class. Sample code to initialize the client library and using Controller methods is given in the subsequent sections.
 
-![Adding a project reference](https://apidocs.io/illustration/cs?workspaceFolder=APIMATIC%20Calculator-CSharp&workspaceName=APIMATICCalculator&projectName=APIMATICCalculator.Standard&rootNamespace=APIMATICCalculator.Standard&step=addCode)
+![Adding a project reference](https://apidocs.io/illustration/cs?workspaceFolder=CoinGecko%20API%20V3-CSharp&workspaceName=CoinGeckoAPIV3&projectName=CoinGeckoAPIV3.Standard&rootNamespace=CoinGeckoAPIV3.Standard&step=addCode)
 
 ## Test the SDK
 
@@ -63,21 +59,32 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `Environment` | Environment | The API environment. <br> **Default: `Environment.Production`** |
 | `Timeout` | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
 
 The API client can be initialized as follows:
 
 ```csharp
-APIMATICCalculator.Standard.APIMATICCalculatorClient client = new APIMATICCalculator.Standard.APIMATICCalculatorClient.Builder()
-    .Environment(APIMATICCalculator.Standard.Environment.Production)
-    .HttpClientConfig(config => config.NumberOfRetries(0))
-    .Build();
+CoinGeckoAPIV3.Standard.CoinGeckoAPIV3Client client = new CoinGeckoAPIV3.Standard.CoinGeckoAPIV3Client.Builder().Build();
 ```
 
 ## List of APIs
 
-* [Simple Calculator](/doc/controllers/simple-calculator.md)
+* [Ping](/doc/controllers/ping.md)
+* [Simple](/doc/controllers/simple.md)
+* [Coins](/doc/controllers/coins.md)
+* [Contract](/doc/controllers/contract.md)
+* [Asset Platforms](/doc/controllers/asset-platforms.md)
+* [Categories](/doc/controllers/categories.md)
+* [Exchanges](/doc/controllers/exchanges.md)
+* [Finance](/doc/controllers/finance.md)
+* [Indexes](/doc/controllers/indexes.md)
+* [Derivatives](/doc/controllers/derivatives.md)
+* [Status Updates](/doc/controllers/status-updates.md)
+* [Events](/doc/controllers/events.md)
+* [Exchange Rates](/doc/controllers/exchange-rates.md)
+* [Trending](/doc/controllers/trending.md)
+* [Global](/doc/controllers/global.md)
+* [Companies Beta](/doc/controllers/companies-beta.md)
 
 ## Classes Documentation
 

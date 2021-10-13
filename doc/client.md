@@ -5,19 +5,15 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `Environment` | Environment | The API environment. <br> **Default: `Environment.Production`** |
 | `Timeout` | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
 
 The API client can be initialized as follows:
 
 ```csharp
-APIMATICCalculator.Standard.APIMATICCalculatorClient client = new APIMATICCalculator.Standard.APIMATICCalculatorClient.Builder()
-    .Environment(APIMATICCalculator.Standard.Environment.Production)
-    .HttpClientConfig(config => config.NumberOfRetries(0))
-    .Build();
+CoinGeckoAPIV3.Standard.CoinGeckoAPIV3Client client = new CoinGeckoAPIV3.Standard.CoinGeckoAPIV3Client.Builder().Build();
 ```
 
-## APIMATIC CalculatorClient Class
+## CoinGecko API V3Client Class
 
 The gateway for the SDK. This class acts as a factory for the Controllers and also holds the configuration of the SDK.
 
@@ -25,7 +21,22 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 
 | Name | Description |
 |  --- | --- |
-| SimpleCalculatorController | Gets SimpleCalculatorController controller. |
+| PingController | Gets PingController controller. |
+| SimpleController | Gets SimpleController controller. |
+| CoinsController | Gets CoinsController controller. |
+| ContractController | Gets ContractController controller. |
+| AssetPlatformsController | Gets AssetPlatformsController controller. |
+| CategoriesController | Gets CategoriesController controller. |
+| ExchangesController | Gets ExchangesController controller. |
+| FinanceController | Gets FinanceController controller. |
+| IndexesController | Gets IndexesController controller. |
+| DerivativesController | Gets DerivativesController controller. |
+| StatusUpdatesController | Gets StatusUpdatesController controller. |
+| EventsController | Gets EventsController controller. |
+| ExchangeRatesController | Gets ExchangeRatesController controller. |
+| TrendingController | Gets TrendingController controller. |
+| GlobalController | Gets GlobalController controller. |
+| CompaniesBetaController | Gets CompaniesBetaController controller. |
 
 ### Properties
 
@@ -39,12 +50,12 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 
 | Name | Description | Return Type |
 |  --- | --- | --- |
-| `GetBaseUri(Server alias = Server.Calculator)` | Gets the URL for a particular alias in the current environment and appends it with template parameters. | `string` |
-| `ToBuilder()` | Creates an object of the APIMATIC CalculatorClient using the values provided for the builder. | `Builder` |
+| `GetBaseUri(Server alias = Server.Default)` | Gets the URL for a particular alias in the current environment and appends it with template parameters. | `string` |
+| `ToBuilder()` | Creates an object of the CoinGecko API V3Client using the values provided for the builder. | `Builder` |
 
-## APIMATIC CalculatorClient Builder Class
+## CoinGecko API V3Client Builder Class
 
-Class to build instances of APIMATIC CalculatorClient.
+Class to build instances of CoinGecko API V3Client.
 
 ### Methods
 
