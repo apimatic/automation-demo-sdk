@@ -1,6 +1,9 @@
 name: Run Test Cases
 
-on: push
+on:
+  push:
+    branches:
+      - 'CodeGen-CS'
 
 jobs:
   build:
