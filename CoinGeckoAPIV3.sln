@@ -2,9 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinGeckoAPIV3.Standard", "CoinGeckoAPIV3.Standard/CoinGeckoAPIV3.Standard.csproj", "{b56064e6-354a-48bf-8b9e-efc3bdc9a9c0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinGeckoAPIV3.Standard", "CoinGeckoAPIV3.Standard/CoinGeckoAPIV3.Standard.csproj", "{9f0401a9-a246-4927-ab2c-b35a87936efe}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinGeckoAPIV3.Tests", "CoinGeckoAPIV3.Tests/CoinGeckoAPIV3.Tests.csproj", "{1bac4e85-1243-4152-aa7f-65cf9a3c9cd6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoinGeckoAPIV3.Tests", "CoinGeckoAPIV3.Tests/CoinGeckoAPIV3.Tests.csproj", "{235c73a6-a476-41a1-8a44-40e4d679ace1}"
 EndProject
 Global
     GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,14 +12,14 @@ Global
         Release|Any CPU = Release|Any CPU
     EndGlobalSection
     GlobalSection(ProjectConfigurationPlatforms) = postSolution
-        {b56064e6-354a-48bf-8b9e-efc3bdc9a9c0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-        {b56064e6-354a-48bf-8b9e-efc3bdc9a9c0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-        {b56064e6-354a-48bf-8b9e-efc3bdc9a9c0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-        {b56064e6-354a-48bf-8b9e-efc3bdc9a9c0}.Release|Any CPU.Build.0 = Release|Any CPU
-        {1bac4e85-1243-4152-aa7f-65cf9a3c9cd6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-        {1bac4e85-1243-4152-aa7f-65cf9a3c9cd6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-        {1bac4e85-1243-4152-aa7f-65cf9a3c9cd6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-        {1bac4e85-1243-4152-aa7f-65cf9a3c9cd6}.Release|Any CPU.Build.0 = Release|Any CPU
+        {9f0401a9-a246-4927-ab2c-b35a87936efe}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {9f0401a9-a246-4927-ab2c-b35a87936efe}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {9f0401a9-a246-4927-ab2c-b35a87936efe}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {9f0401a9-a246-4927-ab2c-b35a87936efe}.Release|Any CPU.Build.0 = Release|Any CPU
+        {235c73a6-a476-41a1-8a44-40e4d679ace1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {235c73a6-a476-41a1-8a44-40e4d679ace1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {235c73a6-a476-41a1-8a44-40e4d679ace1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {235c73a6-a476-41a1-8a44-40e4d679ace1}.Release|Any CPU.Build.0 = Release|Any CPU
     EndGlobalSection
     GlobalSection(SolutionProperties) = preSolution
         HideSolutionNode = FALSE
