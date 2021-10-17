@@ -9,20 +9,13 @@ SimpleCalculatorController simpleCalculatorController = client.SimpleCalculatorC
 `SimpleCalculatorController`
 
 
-# Calculate
+# Get Calculate
 
 Calculates the expression using the specified operation.
 
-| Table Column 1 | Table Column 2 | Table Column 3 |  
-| -------------- | -------------- | -------------- |  
-| Row 1x1        | Row 1x2        | Row 1x3        |  
-| Row 2x1        | Row 2x2        | Row 2x3        |
-
 ```csharp
-CalculateAsync(
-    Models.OperationTypeEnum operation,
-    double x,
-    double y)
+GetCalculateAsync(
+    Models.GetCalculateInput input)
 ```
 
 ## Parameters
@@ -40,13 +33,15 @@ CalculateAsync(
 ## Example Usage
 
 ```csharp
-OperationTypeEnum operation = OperationTypeEnum.SUM;
-double x = 222.14;
-double y = 165.14;
+var getCalculateInput = new GetCalculateInput();
+
+getCalculateInput.Operation = OperationTypeEnum.SUM;
+getCalculateInput.X = 222.14;
+getCalculateInput.Y = 165.14;
 
 try
 {
-    double? result = await simpleCalculatorController.CalculateAsync(operation, x, y);
+    double? result = await simpleCalculatorController.GetCalculateAsync(getCalculateInput);
 }
 catch (ApiException e){};
 ```

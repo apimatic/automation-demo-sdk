@@ -19,24 +19,28 @@ namespace APIMATICCalculator.Standard.Models
     public enum OperationTypeEnum
     {
         /// <summary>
+        ///Represents the sum operator
         /// SUM.
         /// </summary>
         [EnumMember(Value = "SUM")]
         SUM,
 
         /// <summary>
+        ///Represents the subtract operator
         /// SUBTRACT.
         /// </summary>
         [EnumMember(Value = "SUBTRACT")]
         SUBTRACT,
 
         /// <summary>
+        ///Represents the multiply operator
         /// MULTIPLY.
         /// </summary>
         [EnumMember(Value = "MULTIPLY")]
         MULTIPLY,
 
         /// <summary>
+        ///Represents the divide operator
         /// DIVIDE.
         /// </summary>
         [EnumMember(Value = "DIVIDE")]

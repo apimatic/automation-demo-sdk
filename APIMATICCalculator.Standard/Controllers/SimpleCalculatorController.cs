@@ -31,52 +31,33 @@ namespace APIMATICCalculator.Standard.Controllers
         /// <param name="config"> config instance. </param>
         /// <param name="httpClient"> httpClient. </param>
         /// <param name="authManagers"> authManager. </param>
-        internal SimpleCalculatorController(IConfiguration config, IHttpClient httpClient, IDictionary<string, IAuthManager> authManagers)
-            : base(config, httpClient, authManagers)
+        /// <param name="httpCallBack"> httpCallBack. </param>
+        internal SimpleCalculatorController(IConfiguration config, IHttpClient httpClient, IDictionary<string, IAuthManager> authManagers, HttpCallBack httpCallBack = null)
+            : base(config, httpClient, authManagers, httpCallBack)
         {
         }
 
         /// <summary>
-        /// Calculates the expression using the specified operation.  .
-        ///   .
-        ///   .
-        /// | Table Column 1 | Table Column 2 | Table Column 3 |  .
-        /// | -------------- | -------------- | -------------- |  .
-        /// | Row 1x1        | Row 1x2        | Row 1x3        |  .
-        /// | Row 2x1        | Row 2x2        | Row 2x3        |  .
+        /// Calculates the expression using the specified operation.
         /// </summary>
-        /// <param name="operation">Required parameter: The operator to apply on the variables.</param>
-        /// <param name="x">Required parameter: The LHS value.</param>
-        /// <param name="y">Required parameter: The RHS value.</param>
+        /// <param name="input">Object containing request parameters.</param>
         /// <returns>Returns the double response from the API call.</returns>
-        public double Calculate(
-                Models.OperationTypeEnum operation,
-                double x,
-                double y)
+        public double GetCalculate(
+                Models.GetCalculateInput input)
         {
-            Task<double> t = this.CalculateAsync(operation, x, y);
+            Task<double> t = this.GetCalculateAsync(input);
             ApiHelper.RunTaskSynchronously(t);
             return t.Result;
         }
 
         /// <summary>
-        /// Calculates the expression using the specified operation.  .
-        ///   .
-        ///   .
-        /// | Table Column 1 | Table Column 2 | Table Column 3 |  .
-        /// | -------------- | -------------- | -------------- |  .
-        /// | Row 1x1        | Row 1x2        | Row 1x3        |  .
-        /// | Row 2x1        | Row 2x2        | Row 2x3        |  .
+        /// Calculates the expression using the specified operation.
         /// </summary>
-        /// <param name="operation">Required parameter: The operator to apply on the variables.</param>
-        /// <param name="x">Required parameter: The LHS value.</param>
-        /// <param name="y">Required parameter: The RHS value.</param>
+        /// <param name="input">Object containing request parameters.</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the double response from the API call.</returns>
-        public async Task<double> CalculateAsync(
-                Models.OperationTypeEnum operation,
-                double x,
-                double y,
+        public async Task<double> GetCalculateAsync(
+                Models.GetCalculateInput input,
                 CancellationToken cancellationToken = default)
         {
             // the base uri for api requests.
@@ -89,14 +70,14 @@ namespace APIMATICCalculator.Standard.Controllers
             // process optional template parameters.
             ApiHelper.AppendUrlWithTemplateParameters(queryBuilder, new Dictionary<string, object>()
             {
-                { "operation", ApiHelper.JsonSerialize(operation).Trim('\"') },
+                { "operation", ApiHelper.JsonSerialize(input.Operation).Trim('\"') },
             });
 
             // prepare specfied query parameters.
             var queryParams = new Dictionary<string, object>()
             {
-                { "x", x },
-                { "y", y },
+                { "x", input.X },
+                { "y", input.Y },
             };
 
             // append request with appropriate headers and parameters
@@ -108,9 +89,18 @@ namespace APIMATICCalculator.Standard.Controllers
             // prepare the API call request to fetch the response.
             HttpRequest httpRequest = this.GetClientInstance().Get(queryBuilder.ToString(), headers, queryParameters: queryParams);
 
+            if (this.HttpCallBack != null)
+            {
+                this.HttpCallBack.OnBeforeHttpRequestEventHandler(this.GetClientInstance(), httpRequest);
+            }
+
             // invoke request and get response.
             HttpStringResponse response = await this.GetClientInstance().ExecuteAsStringAsync(httpRequest, cancellationToken).ConfigureAwait(false);
             HttpContext context = new HttpContext(httpRequest, response);
+            if (this.HttpCallBack != null)
+            {
+                this.HttpCallBack.OnAfterHttpResponseEventHandler(this.GetClientInstance(), response);
+            }
 
             // handle errors defined at the API level.
             this.ValidateResponse(response, context);

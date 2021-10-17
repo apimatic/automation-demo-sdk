@@ -3,7 +3,7 @@
 
 ## Introduction
 
-Simple calculator API hosted on APIMATIC for demo on 29th Sept
+Simple calculator API hosted on APIMATIC
 
 ## Building
 
@@ -51,6 +51,10 @@ Once the `TestConsoleProject` is created, a file named `Program.cs` will be visi
 
 ![Adding a project reference](https://apidocs.io/illustration/cs?workspaceFolder=APIMATIC%20Calculator-CSharp&workspaceName=APIMATICCalculator&projectName=APIMATICCalculator.Standard&rootNamespace=APIMATICCalculator.Standard&step=addCode)
 
+## Test the SDK
+
+The generated SDK also contain one or more Tests, which are contained in the Tests project. In order to invoke these test cases, you will need `NUnit 3.0 Test Adapter Extension` for Visual Studio. Once the SDK is complied, the test cases should appear in the Test Explorer window. Here, you can click `Run All` to execute these test cases.
+
 ## Initialize the API Client
 
 **_Note:_** Documentation for the client can be found [here.](/doc/client.md)
@@ -59,12 +63,16 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
+| `Environment` | Environment | The API environment. <br> **Default: `Environment.Production`** |
 | `Timeout` | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
 
 The API client can be initialized as follows:
 
 ```csharp
-APIMATICCalculator.Standard.APIMATICCalculatorClient client = new APIMATICCalculator.Standard.APIMATICCalculatorClient.Builder().Build();
+APIMATICCalculator.Standard.APIMATICCalculatorClient client = new APIMATICCalculator.Standard.APIMATICCalculatorClient.Builder()
+    .Environment(APIMATICCalculator.Standard.Environment.Production)
+    .HttpClientConfig(config => config.NumberOfRetries(0))
+    .Build();
 ```
 
 ## List of APIs

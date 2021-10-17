@@ -5,12 +5,16 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
+| `Environment` | Environment | The API environment. <br> **Default: `Environment.Production`** |
 | `Timeout` | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
 
 The API client can be initialized as follows:
 
 ```csharp
-APIMATICCalculator.Standard.APIMATICCalculatorClient client = new APIMATICCalculator.Standard.APIMATICCalculatorClient.Builder().Build();
+APIMATICCalculator.Standard.APIMATICCalculatorClient client = new APIMATICCalculator.Standard.APIMATICCalculatorClient.Builder()
+    .Environment(APIMATICCalculator.Standard.Environment.Production)
+    .HttpClientConfig(config => config.NumberOfRetries(0))
+    .Build();
 ```
 
 ## APIMATIC CalculatorClient Class
@@ -35,7 +39,7 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 
 | Name | Description | Return Type |
 |  --- | --- | --- |
-| `GetBaseUri(Server alias = Server.Default)` | Gets the URL for a particular alias in the current environment and appends it with template parameters. | `string` |
+| `GetBaseUri(Server alias = Server.Calculator)` | Gets the URL for a particular alias in the current environment and appends it with template parameters. | `string` |
 | `ToBuilder()` | Creates an object of the APIMATIC CalculatorClient using the values provided for the builder. | `Builder` |
 
 ## APIMATIC CalculatorClient Builder Class

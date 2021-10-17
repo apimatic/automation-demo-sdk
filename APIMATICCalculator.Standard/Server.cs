@@ -9,8 +9,8 @@ namespace APIMATICCalculator.Standard
     public enum Server
     {
         /// <summary>
-        /// Default.
+        /// Calculator.
         /// </summary>
-        Default,
+        Calculator,
     }
 }
